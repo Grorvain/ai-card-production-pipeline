@@ -5,7 +5,7 @@ End-to-end automated card game asset generation (ComfyUI + Ollama VLM + BiRefNet
 
 An end-to-end, locally hosted production pipeline built to generate, isolate, composite, and typeset a 27-card custom deck at print-ready **300 DPI** resolution—engineered specifically to run smoothly on consumer hardware with **6GB VRAM**.
 
-![Workflow Architecture](docs/workflow_overview.png)
+![Workflow Architecture](workflow_overview.png)
 
 ## System Architecture
 
