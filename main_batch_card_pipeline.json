@@ -1,0 +1,542 @@
+{
+  "1": {
+    "inputs": {
+      "unet_name": "krea2TurboOfficialComfy_krea2TurboInt8.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model"
+    }
+  },
+  "2": {
+    "inputs": {
+      "clip_name": "qwen3vl_4b_fp8_scaled.safetensors",
+      "type": "krea2",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load CLIP"
+    }
+  },
+  "3": {
+    "inputs": {
+      "vae_name": "qwenImageVAE.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "5": {
+    "inputs": {
+      "text": [
+        "31",
+        0
+      ],
+      "clip": [
+        "2",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "6": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "2",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "8": {
+    "inputs": {
+      "seed": 187375341719571,
+      "steps": 8,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 0.3,
+      "model": [
+        "26",
+        0
+      ],
+      "positive": [
+        "5",
+        0
+      ],
+      "negative": [
+        "6",
+        0
+      ],
+      "latent_image": [
+        "12",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "12": {
+    "inputs": {
+      "pixels": [
+        "27",
+        0
+      ]
+    },
+    "class_type": "VAEEncode",
+    "_meta": {
+      "title": "VAE Encode"
+    }
+  },
+  "18": {
+    "inputs": {
+      "samples": [
+        "8",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "20": {
+    "inputs": {
+      "filename_prefix": "Mati/complete",
+      "images": [
+        "52",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "21": {
+    "inputs": {
+      "lora_name": "Darkfantasy_buns_Krea2.safetensors",
+      "strength_model": 1,
+      "model": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "22": {
+    "inputs": {
+      "lora_name": "Tree_of_Savior_style_krea2_v1.0.safetensors",
+      "strength_model": 1,
+      "model": [
+        "21",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "26": {
+    "inputs": {
+      "lora_name": "DarkFantasy_CharacterPortraits_Krea2_v1.safetensors",
+      "strength_model": 1,
+      "model": [
+        "22",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "27": {
+    "inputs": {
+      "upscale_method": "nearest-exact",
+      "width": 1024,
+      "height": 1024,
+      "crop": "disabled",
+      "image": [
+        "50",
+        0
+      ]
+    },
+    "class_type": "ImageScale",
+    "_meta": {
+      "title": "Upscale Image"
+    }
+  },
+  "29": {
+    "inputs": {
+      "system": "You are an objective visual analyzer creating subject descriptions for a Korean manhwa illustration pipeline. Describe ONLY the bat in the image: its exact pose, wing spread or fold, head direction, facial expression, ears, snout, claws, and fur or wing membrane textures. Strictly IGNORE and NEVER mention the background, branches, leaves, cages, sky, walls, lighting, or camera terms like \"photo\" or \"image\". Output ONLY one concise, natural-language descriptive paragraph with zero conversational filler.",
+      "prompt": "Describe the bat in this image following your system instructions.",
+      "think": false,
+      "format": "text",
+      "reset_session": true,
+      "connectivity": [
+        "30",
+        0
+      ],
+      "images": [
+        "82",
+        0
+      ]
+    },
+    "class_type": "OllamaChat",
+    "_meta": {
+      "title": "Ollama Chat"
+    }
+  },
+  "30": {
+    "inputs": {
+      "url": "http://127.0.0.1:11434",
+      "model": "qwen3-vl:latest",
+      "keep_alive": 0,
+      "keep_alive_unit": "minutes"
+    },
+    "class_type": "OllamaConnectivityV2",
+    "_meta": {
+      "title": "Ollama Connectivity"
+    }
+  },
+  "31": {
+    "inputs": {
+      "source": [
+        "32",
+        0
+      ]
+    },
+    "class_type": "PreviewAny",
+    "_meta": {
+      "title": "Preview as Text"
+    }
+  },
+  "32": {
+    "inputs": {
+      "string_a": [
+        "29",
+        0
+      ],
+      "string_b": "Korean manhwa webtoon illustration style, bold clean black ink lineart, dramatic cel-shaded digital painting, dark gothic fantasy atmosphere. Isolated against a pitch-black void background, sharp crisp edges, dramatic rim lighting, high contrast graphic novel art.",
+      "delimiter": " "
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Concatenate Text"
+    }
+  },
+  "39": {
+    "inputs": {
+      "mode": "incremental_image",
+      "seed": 593648128422642,
+      "index": 0,
+      "label": "M1",
+      "path": "C:\\Users\\zarow\\Downloads\\M1",
+      "pattern": "*",
+      "allow_RGBA_output": "false",
+      "filename_text_extension": "true"
+    },
+    "class_type": "Load Image Batch",
+    "_meta": {
+      "title": "Load Image Batch"
+    }
+  },
+  "50": {
+    "inputs": {
+      "images": [
+        "82",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "52": {
+    "inputs": {
+      "x": 0,
+      "y": 0,
+      "resize_source": true,
+      "destination": [
+        "68",
+        0
+      ],
+      "source": [
+        "58:57",
+        0
+      ],
+      "mask": [
+        "58:54",
+        0
+      ]
+    },
+    "class_type": "ImageCompositeMasked",
+    "_meta": {
+      "title": "Image Composite Masked"
+    }
+  },
+  "59": {
+    "inputs": {
+      "filename_prefix": "Mati/raw",
+      "images": [
+        "18",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "62": {
+    "inputs": {
+      "seed": 118118524946423,
+      "steps": 8,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "26",
+        0
+      ],
+      "positive": [
+        "64",
+        0
+      ],
+      "negative": [
+        "65",
+        0
+      ],
+      "latent_image": [
+        "66",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "64": {
+    "inputs": {
+      "text": [
+        "72",
+        0
+      ],
+      "clip": [
+        "2",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "65": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "2",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "66": {
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "67": {
+    "inputs": {
+      "samples": [
+        "62",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "68": {
+    "inputs": {
+      "images": [
+        "67",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "72": {
+    "inputs": {
+      "text": "{ancient gothic stone ruins covered in wet ivy, broken arches|dense misty pine forest at midnight, tall dark silhouettes of trees|abandoned overgrown cemetery with rusty iron gates and weathered tombstones|gloomy foggy mountain cliff overlooking a deep dark valley|wet cobblestone alleyway in a dark Victorian town, dim streetlamps|murky midnight swamp with dead twisted trees and reflective dark water|secluded rocky cave entrance surrounded by wet moss and mist|rain-slicked wooden bridge over a dark misty river}, {heavy pouring rain, visible rain streaks in the air|thick cold fog, low visibility, swirling damp mist|approaching thunderstorm, dark turbulent storm clouds|chilling drizzle, wet glistening stone and foliage}, {pale silver moonlight breaking through dark clouds|dim cold cyan ambient night light|faint distant lightning glow behind the clouds|eerie blue twilight mist}, dark moody atmosphere, cold desaturated blue and slate grey color palette, Korean manhwa webtoon background art style, detailed digital painting, soft background depth of field, centered open space, no characters, no animals, no bats\n",
+      "seed": 367,
+      "autorefresh": "Yes"
+    },
+    "class_type": "DPRandomGenerator",
+    "_meta": {
+      "title": "Random Prompts"
+    }
+  },
+  "76": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "79",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "77": {
+    "inputs": {
+      "image": "21 młotogłów wielkogłowy (1).jpg"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "79": {
+    "inputs": {
+      "image": [
+        "58:57",
+        0
+      ],
+      "alpha": [
+        "80",
+        0
+      ]
+    },
+    "class_type": "JoinImageWithAlpha",
+    "_meta": {
+      "title": "Join Image with Alpha"
+    }
+  },
+  "80": {
+    "inputs": {
+      "mask": [
+        "58:54",
+        0
+      ]
+    },
+    "class_type": "InvertMask",
+    "_meta": {
+      "title": "Invert Mask"
+    }
+  },
+  "82": {
+    "inputs": {
+      "Input": 1,
+      "image1": [
+        "77",
+        0
+      ],
+      "image2": [
+        "39",
+        0
+      ]
+    },
+    "class_type": "CR Image Input Switch",
+    "_meta": {
+      "title": "🔀 CR Image Input Switch"
+    }
+  },
+  "58:54": {
+    "inputs": {
+      "bg_removal_model": [
+        "58:55",
+        0
+      ],
+      "image": [
+        "59",
+        0
+      ]
+    },
+    "class_type": "RemoveBackground",
+    "_meta": {
+      "title": "Remove Background"
+    }
+  },
+  "58:55": {
+    "inputs": {
+      "bg_removal_name": "birefnet.safetensors"
+    },
+    "class_type": "LoadBackgroundRemovalModel",
+    "_meta": {
+      "title": "Load Background Removal Model"
+    }
+  },
+  "58:56": {
+    "inputs": {
+      "mask": [
+        "58:54",
+        0
+      ]
+    },
+    "class_type": "InvertMask",
+    "_meta": {
+      "title": "Invert Mask"
+    }
+  },
+  "58:57": {
+    "inputs": {
+      "image": [
+        "59",
+        0
+      ],
+      "alpha": [
+        "58:56",
+        0
+      ]
+    },
+    "class_type": "JoinImageWithAlpha",
+    "_meta": {
+      "title": "Join Image with Alpha"
+    }
+  }
+}

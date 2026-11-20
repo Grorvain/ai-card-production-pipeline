@@ -1,0 +1,138 @@
+{
+  "1": {
+    "inputs": {
+      "mode": "incremental_image",
+      "seed": 684519856010480,
+      "index": 0,
+      "label": "Batch 001",
+      "path": "C:\\AI Art Lab\\ComfyUI\\output\\Mati\\Raw",
+      "pattern": "*",
+      "allow_RGBA_output": "false",
+      "filename_text_extension": "true"
+    },
+    "class_type": "Load Image Batch",
+    "_meta": {
+      "title": "Load Image Batch"
+    }
+  },
+  "23": {
+    "inputs": {
+      "image": [
+        "22:16",
+        0
+      ],
+      "alpha": [
+        "28",
+        0
+      ]
+    },
+    "class_type": "JoinImageWithAlpha",
+    "_meta": {
+      "title": "Join Image with Alpha"
+    }
+  },
+  "24": {
+    "inputs": {
+      "filename_prefix": "Mati/Alpha/clean",
+      "images": [
+        "23",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "26": {
+    "inputs": {
+      "Input": 1,
+      "image1": [
+        "27",
+        0
+      ],
+      "image2": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "CR Image Input Switch",
+    "_meta": {
+      "title": "🔀 CR Image Input Switch"
+    }
+  },
+  "27": {
+    "inputs": {
+      "image": "Nova_00025_.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "28": {
+    "inputs": {
+      "mask": [
+        "22:13",
+        0
+      ]
+    },
+    "class_type": "InvertMask",
+    "_meta": {
+      "title": "Invert Mask"
+    }
+  },
+  "22:13": {
+    "inputs": {
+      "bg_removal_model": [
+        "22:14",
+        0
+      ],
+      "image": [
+        "26",
+        0
+      ]
+    },
+    "class_type": "RemoveBackground",
+    "_meta": {
+      "title": "Remove Background"
+    }
+  },
+  "22:14": {
+    "inputs": {
+      "bg_removal_name": "birefnet.safetensors"
+    },
+    "class_type": "LoadBackgroundRemovalModel",
+    "_meta": {
+      "title": "Load Background Removal Model"
+    }
+  },
+  "22:15": {
+    "inputs": {
+      "mask": [
+        "22:13",
+        0
+      ]
+    },
+    "class_type": "InvertMask",
+    "_meta": {
+      "title": "Invert Mask"
+    }
+  },
+  "22:16": {
+    "inputs": {
+      "image": [
+        "26",
+        0
+      ],
+      "alpha": [
+        "22:15",
+        0
+      ]
+    },
+    "class_type": "JoinImageWithAlpha",
+    "_meta": {
+      "title": "Join Image with Alpha"
+    }
+  }
+}
