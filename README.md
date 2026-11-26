@@ -11,7 +11,7 @@ An end-to-end, locally hosted production pipeline built to generate, isolate, co
 
 | 1. Input Reference | 2. Style Transfer (ComfyUI) | 3. Alpha Cutout (BiRefNet) | 4. Composited Art | 5. Final 300 DPI Card |
 | :---: | :---: | :---: | :---: | :---: |
-| ![Input](examples/01_input_reference.png) | ![Style](examples/02_style_transfer.png) | ![Alpha](examples/03_birefnet_alpha.png) | ![Composite](examples/04_composited_background.png) | ![Final](examples/05_final_300dpi_card.png) |
+| ![Input](examples/01_input_reference.jpg) | ![Style](examples/02_style_transfer.png) | ![Alpha](examples/03_birefnet_alpha.png) | ![Composite](examples/04_composited_background.png) | ![Final](examples/05_final_300dpi_card.png) |
 
 ## System Architecture
 
