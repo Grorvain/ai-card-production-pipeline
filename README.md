@@ -7,6 +7,12 @@ An end-to-end, locally hosted production pipeline built to generate, isolate, co
 
 ![Workflow Architecture](workflow_overview.png)
 
+## 🎨 Pipeline Visual Breakdown (`examples/`)
+
+| 1. Input Reference | 2. Style Transfer (ComfyUI) | 3. Alpha Cutout (BiRefNet) | 4. Composited Art | 5. Final 300 DPI Card |
+| :---: | :---: | :---: | :---: | :---: |
+| ![Input](examples/01_input_reference.png) | ![Style](examples/02_style_transfer.png) | ![Alpha](examples/03_birefnet_alpha.png) | ![Composite](examples/04_composited_background.png) | ![Final](examples/05_final_300dpi_card.png) |
+
 ## System Architecture
 
 The pipeline is decoupled into three modular stages to maximize hardware efficiency and allow rapid single-asset hotfixes without re-running entire batches:
@@ -22,7 +28,8 @@ The pipeline is decoupled into three modular stages to maximize hardware efficie
 ### 2. Standalone Alpha Cutout Utility (`ComfyUI`)
 * A lightweight, decoupled graph (`BiRefNet` -> `InvertMask` -> `Join Image with Alpha`) for rapid batch extraction of transparent PNG layers without loading heavy diffusion checkpoints into memory.
 
-### 3. Automated Python DTP Assembly Engine (`scripts/build_deck.py`)
+### 3. Automated Python DTP Assembly Engine (`build_deck.py`)
+* **AI-Assisted Pipeline Engineering:** Designed and architected as a modular DTP automation tool using AI-assisted Python development (`Pillow` + `openpyxl`) to eliminate manual card assembly.
 * **Data-Driven Layout:** Reads card names (Polish + Latin taxonomy), stats (HP/Attack), and ability descriptions directly from `.xlsx` / `.csv` spreadsheets via `openpyxl`.
 * **Print-Ready Output (300 DPI):** Automatically wraps and centers typography with dynamic contrast strokes, aligns UI icons, composites card frames (`80x120 mm` / `945x1417 px`), and exports:
   * Individual high-res PNG cards (`output_cards/`)
